@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
-import PlaylistFilter from "../components/PlayListFilter";
-import PlaylistResults from "../components/PlayListResults";
+import PlaylistFilter from "../playlist/PlayListFilter";
+import PlaylistResults from "../playlist/PlayListResults";
 import { fetchPlaylists } from "../api/Spotify";
+import "./Home.css";
 
 function Home() {
   const [playlists, setPlaylists] = useState([]);
   const [filtered, setFiltered] = useState(false);
   const [loading, setLoading] = useState(true);
 
-  // Load default playlists on first render
   useEffect(() => {
     async function loadDefaultPlaylists() {
       const results = await fetchPlaylists("running music");
@@ -29,20 +29,44 @@ function Home() {
 
   return (
     <div className="home-container">
-      <h1>RunRhythm</h1>
-      <PlaylistFilter onFilter={handleFilter} />
-      {loading ? (
-        <p>Loading playlists...</p>
-      ) : (
-        <>
-          {!filtered && <h2>Suggested Playlists</h2>}
-          {playlists.length > 0 ? (
-            <PlaylistResults playlists={playlists} />
-          ) : (
-            <p>No playlists found. Try a different mood or pace.</p>
-          )}
-        </>
-      )}
+      <header className="hero">
+        <h1>Fuel your stride with the perfect beat</h1>
+        <div className="hero-buttons">
+          <a href="/playlists" className="btn">
+            Explore Playlists
+          </a>
+          <a href="/tracker" className="btn btn-secondary">
+            Start Running with Music
+          </a>
+        </div>
+      </header>
+
+      <section className="playlist-section">
+        <PlaylistFilter onFilter={handleFilter} />
+        {loading ? (
+          <p>Loading playlists...</p>
+        ) : (
+          <>
+            {!filtered && <h2>Suggested Playlists</h2>}
+            {playlists.length > 0 ? (
+              <PlaylistResults playlists={playlists} />
+            ) : (
+              <p>No playlists found. Try a different mood or pace.</p>
+            )}
+          </>
+        )}
+      </section>
+
+      <section className="how-it-works">
+        <h2>HOW IT WORKS</h2>
+        <div className="steps">
+          <div className="step">1. Choose your pace, mood, or terrain</div>
+          <div className="step">
+            2. Get curated playlists from Spotify or YouTube
+          </div>
+          <div className="step">3. Hit play and run with rhythm</div>
+        </div>
+      </section>
     </div>
   );
 }

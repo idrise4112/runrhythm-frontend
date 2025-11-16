@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
-import RunHistory from "../components/RunHistory";
-import Navbar from "../components/Navbar";
+import RunHistory from "../run/RunHistory";
 
-export default function Dashboard() {
+export default function ProfilePage() {
   const [history, setHistory] = useState([]);
 
   useEffect(() => {
@@ -16,9 +15,8 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="dashboard-container">
-      <Navbar />
-      <h1>Dashboard</h1>
+    <div className="ProfilePage-container">
+      <h1>ProfilePage</h1>
       <p>Here’s your recent run history based on mood and pace filters.</p>
       <RunHistory history={history} onClear={handleClear} />
     </div>

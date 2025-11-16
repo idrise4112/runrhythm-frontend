@@ -5,7 +5,6 @@ const BASE_URL = "https://api.spotify.com/v1";
 const CLIENT_ID = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
 const CLIENT_SECRET = process.env.REACT_APP_SPOTIFY_CLIENT_SECRET;
 
-// 🔍 Debug log to verify .env values
 console.log("CLIENT_ID:", CLIENT_ID);
 console.log("CLIENT_SECRET:", CLIENT_SECRET);
 
