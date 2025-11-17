@@ -8,6 +8,7 @@ import RunTracker from "./run/RunTracker";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import SpotifyCallback from "./pages/SpotifyCallback";
+import ProtectedRoute from "./auth/ProtectedRoute"; // ✅ Add this line
 
 function App() {
   return (
@@ -17,10 +18,31 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<RegisterPage />} />
-        <Route path="/profile" element={<ProfilePage />} />
-        <Route path="/playlists" element={<PlaylistViewer />} />
-        <Route path="/tracker" element={<RunTracker />} />
-        <Route path="/callback" element={<SpotifyCallback />} /> {}
+        <Route
+          path="/profile"
+          element={
+            <ProtectedRoute>
+              <ProfilePage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/playlists"
+          element={
+            <ProtectedRoute>
+              <PlaylistViewer />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/tracker"
+          element={
+            <ProtectedRoute>
+              <RunTracker />
+            </ProtectedRoute>
+          }
+        />
+        <Route path="/callback" element={<SpotifyCallback />} />
       </Routes>
     </Router>
   );

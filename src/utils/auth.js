@@ -1,5 +1,5 @@
 export const registerUser = (username, password) => {
-  const users = JSON.parse(localStorage.getItem("users")) || {};
+  const users = JSON.parse(localStorage.getItem("runrhythmUser")) || {};
   if (users[username]) return false;
   users[username] = { password };
   localStorage.setItem("users", JSON.stringify(users));
@@ -7,6 +7,9 @@ export const registerUser = (username, password) => {
 };
 
 export const loginUser = (username, password) => {
-  const users = JSON.parse(localStorage.getItem("users")) || {};
+  console.log(13231231);
+  console.log(username, password);
+  const users = JSON.parse(localStorage.getItem("runrhythmUser")) || {};
+  console.log(users);
   return users[username]?.password === password;
 };

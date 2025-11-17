@@ -9,6 +9,7 @@ console.log("CLIENT_ID:", CLIENT_ID);
 console.log("CLIENT_SECRET:", CLIENT_SECRET);
 
 async function getAccessToken() {
+  console.log(CLIENT_ID, CLIENT_SECRET);
   if (!CLIENT_ID || !CLIENT_SECRET) {
     throw new Error("Missing Spotify client credentials");
   }

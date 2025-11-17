@@ -60,7 +60,7 @@ function Home() {
       <section className="how-it-works">
         <h2>HOW IT WORKS</h2>
         <div className="steps">
-          <div className="step">1. Choose your pace, mood, or terrain</div>
+          <div className="step">1. Choose your pace and mood</div>
           <div className="step">
             2. Get curated playlists from Spotify or YouTube
           </div>

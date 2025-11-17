@@ -1,6 +1,5 @@
-// src/pages/RegisterPage.jsx
 import { useState } from "react";
-import "./RegisterPage.css"; // optional styling
+import "./RegisterPage.css";
 
 export default function RegisterPage() {
   const [formData, setFormData] = useState({
