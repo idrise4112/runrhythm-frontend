@@ -11,5 +11,11 @@ export const loginUser = (username, password) => {
   console.log(username, password);
   const users = JSON.parse(localStorage.getItem("runrhythmUser")) || {};
   console.log(users);
-  return users[username]?.password === password;
+
+  // const usermatch= users.filter((user)=>user.username===username)
+  // if (usermatch.length===0) {
+  //   return false
+  // }
+
+  return users?.password === password;
 };
